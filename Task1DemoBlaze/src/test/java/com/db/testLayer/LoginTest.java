@@ -13,37 +13,13 @@ import com.db.utility.Utill;
 public class LoginTest extends TestBase {
 	
 	
-	@Test()
-	public void loginDemoBlaze() throws InterruptedException
-		{	
-			HomePage home = new HomePage();
-			LoginPage log = new LoginPage();
-			
-			
-			home.clickOnLoginLink();
-			
-			log.enterUsername("sctqaautomation@grr.la");
-			log.enterPassword("Spring@123");
-			Assert.fail();
-			//log.clickOnLoginButton();
-			
-		}
+	
 	
 	@Test
 	public void buyDemoBlaze() throws InterruptedException
 		{	
-			HomePage home = new HomePage();
-			LoginPage log = new LoginPage();
-			Utill ut = new Utill();
-			CartPage cd= new CartPage();
 			
-			home.clickOnLoginLink();
-			Thread.sleep(2000);
-			log.enterUsername("AshishPatil@gmail.com");
-			log.enterPassword("Test@1234");
-			log.clickOnLoginButton();
 			
-			Thread.sleep(4000);
 			home.clickOnPhonesLinks();
 			Thread.sleep(4000);
 			home.clickOnSamsungGalaxyS6();	//click Samasung

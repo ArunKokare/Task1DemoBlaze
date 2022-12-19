@@ -5,8 +5,11 @@
     <classes>
       <class name="com.db.testLayer.LoginTest">
         <methods>
+          <include name="tearDown"/>
+          <include name="strat"/>
           <include name="buyDemoBlaze"/>
           <include name="setup"/>
+          <include name="end"/>
         </methods>
       </class> <!-- com.db.testLayer.LoginTest -->
     </classes>

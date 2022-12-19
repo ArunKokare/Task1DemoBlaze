@@ -14,12 +14,21 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import com.db.pageLayer.CartPage;
+import com.db.pageLayer.HomePage;
+import com.db.pageLayer.LoginPage;
+import com.db.utility.Utill;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 	
 	public static WebDriver driver;
 	public static Logger logger;
+	public HomePage home ;
+	public LoginPage log ; 
+	public Utill ut ;
+	public CartPage cd;
 	
 	@BeforeClass
 	public void strat()
@@ -40,9 +49,9 @@ public class TestBase {
 	@Parameters("browser")
 	
 	@BeforeMethod
-	public void setup(String br)
+	public void setup() throws InterruptedException
 	{
-		
+		String br="chrome";
 		
 		if(br.equalsIgnoreCase("Chrome"))
 		{
@@ -69,6 +78,20 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		logger.info("url lunches ,maximize,and provided waits");
+		
+	//------------Object creation------------------
+		 home = new HomePage();
+		 log = new LoginPage();
+		 ut = new Utill();
+		 cd= new CartPage();
+		 
+  //------------login step-----------------------------
+		    home.clickOnLoginLink();
+			log.enterUsername("AshishPatil@gmail.com");
+			log.enterPassword("Test@1234");
+			log.clickOnLoginButton();
+			Thread.sleep(4000);
+		
 
 	}
 	
